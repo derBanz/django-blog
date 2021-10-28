@@ -59,7 +59,7 @@ def blog_create(request):
             new_blog.body = form.cleaned_data['entry']
             new_blog.author = form.cleaned_data['author']
             new_blog.save()
-            return HttpResponseRedirect('/blog/' + str(new_blog.get(id)))
+            return HttpResponseRedirect('/blog/' + str(new_blog.id))
         else:
             form.errors
     else:
