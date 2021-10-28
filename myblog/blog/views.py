@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
-from random import randint
+from random import choice
 
 from .models import Blog
 from .forms import BlogForm
@@ -13,26 +13,44 @@ _entries_per_page = 5
 
 # Create your views here.
 def home(request):
+    while True:
+        try:
+            rand_id = choice(blogs).id
+            break
+        except IndexError:
+            pass
     paginator = Paginator(blogs, _entries_per_page)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
-        'rand_entry': blogs[randint(0, num_entries)].id,
+        'rand_entry': rand_id,
         'page_obj': page_obj,
     }
     return render(request, 'blog/home.html', context)
 
 
 def blog_post(request, id=1):
+    while True:
+        try:
+            rand_id = choice(blogs).id
+            break
+        except IndexError:
+            pass
     blog_post = Blog.objects.get(id=id)
     context = {
         'blog': blog_post,
-        'rand_entry': blogs[randint(0, num_entries)].id,
+        'rand_entry': rand_id,
     }
     return render(request, 'blog/blog_post.html', context)
 
 
 def blog_create(request):
+    while True:
+        try:
+            rand_id = choice(blogs).id
+            break
+        except IndexError:
+            pass
     if request.method == 'POST':
         form = BlogForm(request.POST)
         if form.is_valid():
@@ -49,6 +67,6 @@ def blog_create(request):
 
     context = {
         'form': form,
-        'rand_entry': blogs[randint(0, num_entries)].id,
+        'rand_entry': rand_id,
     }
     return render(request, 'blog/create.html', context)
