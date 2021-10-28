@@ -12,7 +12,6 @@ _entries_per_page = 5
 # Create your views here.
 def home(request):
     blogs = Blog.objects.all().order_by('-id')
-    num_entries = Blog.objects.filter().count()
     while True:
         try:
             rand_id = choice(blogs).id
