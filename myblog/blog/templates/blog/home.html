@@ -7,9 +7,56 @@
     <title>Blog</title>
 </head>
 <body>
-    <p><a href="/blog/create">Create new post</a></p>
-    {% for blog in blog_posts %}
-        <p><a href="/blog/{{ blog.id }}/">{{  blog.title  }}</a></p>
-    {% endfor %}
+    {% load static %}
+    {% load markdownify %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    <div class="menu">
+        <a href="/" class="menu-link">
+            <div class="menu-item">
+                Home
+            </div>
+        </a>
+        <a href="/blog/{{ rand_entry }}/" class="menu-link">
+            <div class="menu-item">
+                Random
+            </div>
+        </a>
+        <a href="/blog/create" class="menu-link">
+            <div class="menu-item">
+                Create
+            </div>
+        </a>
+    </div>
+    <div class='main'>
+        {% for blog in page_obj %}
+            <div>
+                <hr>
+                <h1>{{ blog.title }}</h3>
+                <p class=date>{{ blog.date }}, by {{ blog.author }}</p>
+                <p>
+                    <div class=preview>{{ blog.body|markdownify }}</div>
+                    <br>
+                    <a href="/blog/{{ blog.id }}/">{{  "Read all..." }}</a>
+                </p>
+            </div>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
 </body>
 </html>

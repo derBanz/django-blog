@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e2un4rr!@x-rh_7m^mwqn08e*@kjh6$6$ni#xzrv7%-se%f15o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sebanzian.pythonanywhere.com']
+ALLOWED_HOSTS = ['sebanzian.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -149,7 +149,6 @@ MARKDOWNIFY = {
             'blockquote',
             'code',
             'em',
-            'h1',
             'h2',
             'h3',
             'h4',

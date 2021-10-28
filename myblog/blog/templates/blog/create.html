@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ blog.title }}</title>
+    <title>Create</title>
 </head>
 <body>
     {% load static %}
@@ -26,13 +26,13 @@
             </div>
         </a>
     </div>
-    {% load markdownify %}
     <div class='main'>
-        <hr>
-        <h1>{{ blog.title }}</h1>
-        <p class=date>{{ blog.date }}, by {{ blog.author }}</p>
-        <p>{{ blog.body|markdownify }}</p>
+        <h1>New blog entry</h1>
+        <form action="/blog/create" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
     </div>
-    
 </body>
 </html>
