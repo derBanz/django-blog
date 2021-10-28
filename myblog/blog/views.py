@@ -6,13 +6,13 @@ from random import choice
 from .models import Blog
 from .forms import BlogForm
 
-blogs = Blog.objects.all().order_by('-id')
-num_entries = Blog.objects.filter().count()
 _entries_per_page = 5
 
 
 # Create your views here.
 def home(request):
+    blogs = Blog.objects.all().order_by('-id')
+    num_entries = Blog.objects.filter().count()
     while True:
         try:
             rand_id = choice(blogs).id
@@ -30,6 +30,7 @@ def home(request):
 
 
 def blog_post(request, id=1):
+    blogs = Blog.objects.all().order_by('-id')
     while True:
         try:
             rand_id = choice(blogs).id
@@ -45,6 +46,7 @@ def blog_post(request, id=1):
 
 
 def blog_create(request):
+    blogs = Blog.objects.all().order_by('-id')
     while True:
         try:
             rand_id = choice(blogs).id
