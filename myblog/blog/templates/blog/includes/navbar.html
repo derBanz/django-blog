@@ -1,0 +1,33 @@
+<div class="menu">
+    <a href="/" class="menu-link">
+        <div class="menu-item">
+            Home
+        </div>
+    </a>
+    <a href="/blog/{{ rand_entry }}/" class="menu-link">
+        <div class="menu-item">
+            Random
+        </div>
+    </a>
+    {% if user.is_authenticated %}
+    <a href="/blog/create" class="menu-link">
+        <div class="menu-item">
+            Create
+        </div>
+    </a>
+    <a href="/logout" class="menu-link">
+        <div class="menu-item">
+            Logout
+        </div>
+    </a>
+    <div class="menu-item">
+        Hello, {{ user.username }}
+    </div>
+    {% else %}
+    <a href="/login" class="menu-link">
+        <div class="menu-item">
+            Login
+        </div>
+    </a>
+    {% endif %}
+</div>

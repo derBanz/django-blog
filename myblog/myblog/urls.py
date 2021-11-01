@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 from blog import views
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('blog/<int:id>/', views.blog_post, name='blog_post'),
-    path('blog/create', views.blog_create, name='create'),
+    path('blog/create/', login_required(views.blog_create), name='create'),
+    path('register/', views.register_request, name='register'),
+    path('login/', views.login_request, name='login'),
+    path('logout/', views.logout_request, name='logout'),
     path('admin/', admin.site.urls),
 ]

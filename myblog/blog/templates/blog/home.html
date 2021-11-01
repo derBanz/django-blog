@@ -10,23 +10,7 @@
     {% load static %}
     {% load markdownify %}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
-    <div class="menu">
-        <a href="/" class="menu-link">
-            <div class="menu-item">
-                Home
-            </div>
-        </a>
-        <a href="/blog/{{ rand_entry }}/" class="menu-link">
-            <div class="menu-item">
-                Random
-            </div>
-        </a>
-        <a href="/blog/create" class="menu-link">
-            <div class="menu-item">
-                Create
-            </div>
-        </a>
-    </div>
+    {% include 'blog/includes/navbar.html' %}
     <div class='main'>
         {% for blog in page_obj %}
             <div>
