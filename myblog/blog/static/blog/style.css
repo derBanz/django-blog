@@ -49,17 +49,19 @@ label,
 }
 
 .menu-item {
+    height: 80px;
+    line-height: 80px;
     text-align: center;
     padding: 20px;
     font-size: 30px;
-    text-align: center;
 }
 
 .menu-welcome {
-    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    text-align: right;
     padding: 20px;
     font-size: 14px;
-    text-align: center;
 }
 
 .main {

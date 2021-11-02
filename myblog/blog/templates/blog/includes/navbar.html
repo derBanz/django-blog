@@ -15,15 +15,21 @@
             Create
         </div>
     </a>
+    <div class="menu-welcome">
+        Hello, {{ user.username }}
+    </div>
     <a href="/logout" class="menu-link">
         <div class="menu-item">
             Logout
         </div>
     </a>
-    <div class="menu-welcome">
-        Hello, {{ user.username }}
-    </div>
     {% else %}
+    <div class="menu-link">
+        
+    </div>
+    <div class="menu-welcome">
+        
+    </div>
     <a href="/login" class="menu-link">
         <div class="menu-item">
             Login
