@@ -13,7 +13,7 @@
     <div class='main'>
         <hr>
         <h1>New blog entry</h1>
-        <form action="/blog/create" method="post">
+        <form action="/blog/create/" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Submit">

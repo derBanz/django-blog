@@ -49,16 +49,14 @@ label,
 }
 
 .menu-item {
-    height: 80px;
-    line-height: 80px;
     text-align: center;
     padding: 20px;
     font-size: 30px;
 }
 
 .menu-welcome {
-    height: 80px;
-    line-height: 80px;
+    height: 40px;
+    line-height: 40px;
     text-align: right;
     padding: 20px;
     font-size: 14px;
@@ -67,5 +65,5 @@ label,
 .main {
     width: 50%;
     margin:0 auto;
-    padding: 100px 25px 100px 25px;
+    padding: 120px 25px 120px 25px;
 }

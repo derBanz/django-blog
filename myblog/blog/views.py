@@ -59,6 +59,7 @@ def blog_create(request):
     if request.method == 'POST':
         form = BlogForm(request.POST)
         if form.is_valid():
+            print("form is valid.")
             new_blog = form.save(commit=False)
             new_blog.title = form.cleaned_data['title']
             new_blog.body = form.cleaned_data['entry']
