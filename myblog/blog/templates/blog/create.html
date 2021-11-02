@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
     {% include 'blog/includes/navbar.html' %}
     <div class='main'>
+        <hr>
         <h1>New blog entry</h1>
         <form action="/blog/create" method="post">
             {% csrf_token %}
