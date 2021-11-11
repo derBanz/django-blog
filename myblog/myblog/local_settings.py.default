@@ -9,7 +9,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Sebanzian$Django-blog',
         'USER': 'Sebanzian',
-        'PASSWORD': 'f41f8c7123a5',
+        'PASSWORD': '',
         'HOST': 'Sebanzian.mysql.pythonanywhere-services.com',
     }
 }

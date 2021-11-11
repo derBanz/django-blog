@@ -34,7 +34,7 @@ except NameError:
 try:
     DEBUG
 except NameError:
-    DEBUG + False
+    DEBUG = False
 
 try:
     ALLOWED_HOSTS
