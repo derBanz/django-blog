@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +25,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+try:
+    SECRET_KEY
+except NameError:
+    SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+try:
+    DEBUG
+except NameError:
+    DEBUG + False
 
-ALLOWED_HOSTS = ['sebanzian.pythonanywhere.com', 'localhost']
+try:
+    ALLOWED_HOSTS
+except NameError:
+    ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -75,12 +89,15 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+try:
+    DATABASES
+except NameError:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 
 # Password validation
@@ -167,8 +184,3 @@ MARKDOWNIFY = {
         ]
     }
 }
-
-try:
-    from local_settings import *
-except ImportError:
-    pass

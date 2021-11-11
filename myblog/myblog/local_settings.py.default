@@ -2,6 +2,8 @@ ALLOWED_HOSTS = ['sebanzian.pythonanywhere.com', 'localhost']
 
 SECRET_KEY = ''
 
+# DEBUG = TRUE
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
