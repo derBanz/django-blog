@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'markdownify.apps.MarkdownifyConfig',
-    'verify_email.apps.VerifyEmailConfig',
 ]
 
 MIDDLEWARE = [
