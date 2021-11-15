@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.decorators import login_required
+from django.conf.urls import include
 from blog import views
 
 urlpatterns = [
@@ -26,4 +27,5 @@ urlpatterns = [
     path('login/', views.login_request, name='login'),
     path('logout/', views.logout_request, name='logout'),
     path('admin/', admin.site.urls),
+    path('verification/', include('verify_emails.urls'))
 ]
